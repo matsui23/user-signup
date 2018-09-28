@@ -2,19 +2,28 @@
 
 {% block content %}
 
-<form action="/validate_info", method='post' >
+<form class = "form" action="/validate_info", method='post' >
     <label><br><br>
         Username : 
-        <input type="text" name="username"/>
+        <input type="text" name="username" placeholder="Enter a username" value="{{username}}"/>
+        {% if error_username %}
+            <p class='error'>{{error_username}}</p>
+        {% endif %}
             <br><br>
         Password :
-        <input type="password" name="password"/>
+        <input type="password" name="password" placeholder="Enter a password"/>
+        {% if error_password %}
+            <p class='error'>{{error_password}}</p>
+        {% endif %}
             <br><br>
         Retype password :
-        <input type="password" name="verify_password"/>
+        <input type="password" name="verify_password" placeholder="Retype password"/>
             <br><br>
         Email :
-        <input type="text" name="email">
+        <input type="text" name="email" placeholder="Enter an email" value="{{email}}">
+        {% if error_email %}
+            <p class='error'>{{error_email}}</p>
+        {% endif %}
             <br><br>
         <input type="submit" name="Submit">
 
